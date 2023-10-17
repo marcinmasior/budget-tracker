@@ -8,7 +8,6 @@ class ContainersController < DashboardController
   def show
   end
 
-  # GET /containers/new
   def new
     @container = Container.new
   end

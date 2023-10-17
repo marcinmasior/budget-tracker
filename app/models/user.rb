@@ -4,5 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :containers
+  has_many :containers, dependent: :destroy
+  has_many :categories, dependent: :destroy
+
+  before_create :build_default_category
+
+  private
+
+  def build_default_category
+    self.categories.build(name: 'Other')
+  end
 end
