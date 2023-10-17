@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :containers, dependent: :destroy
   has_many :categories, dependent: :destroy
+  has_many :records
 
   before_create :build_default_category
 

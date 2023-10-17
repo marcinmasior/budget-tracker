@@ -2,7 +2,7 @@ class CategoriesController < DashboardController
   before_action :set_category, only: %i[ edit update destroy ]
 
   def index
-    @categories = Category.all
+    @categories = current_user.categories
   end
 
   def new
@@ -14,6 +14,7 @@ class CategoriesController < DashboardController
 
   def create
     @category = Category.new(category_params)
+    @category.user = current_user
 
     if @category.save
       redirect_to category_url(@category), notice: "Category was successfully created."
@@ -38,7 +39,7 @@ class CategoriesController < DashboardController
 
   private
     def set_category
-      @category = Category.find(params[:id])
+      @category = current_user.categories.find(params[:id])
     end
 
     def category_params

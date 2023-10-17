@@ -7,4 +7,8 @@
   <%= link_to "Back to containers", containers_path %>
 
   <%= button_to "Destroy this container", @container, method: :delete %>
+
+  <%= link_to "New record", new_container_record_path(@container) %>
 </div>
+
+<%= render 'records/index', records: @container.records %>

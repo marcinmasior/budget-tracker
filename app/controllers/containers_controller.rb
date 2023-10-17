@@ -2,7 +2,7 @@ class ContainersController < DashboardController
   before_action :set_container, only: %i[ show edit update destroy ]
 
   def index
-    @containers = current_user.containers.all
+    @containers = current_user.containers
   end
 
   def show
@@ -43,7 +43,7 @@ class ContainersController < DashboardController
   private
 
     def set_container
-      @container = Container.find(params[:id])
+      @container = current_user.containers.find(params[:id])
     end
 
     def container_params
