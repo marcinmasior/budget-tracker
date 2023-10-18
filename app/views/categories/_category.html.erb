@@ -1,7 +1,7 @@
 <tr id="<%= dom_id category %>">
   <td><%= category.name %></td>
   <td>
-    <div class="d-flex gap-2">
+    <div class="d-flex gap-2 justify-content-center">
       <%= link_to "Edit this container", edit_category_path(category) %>
       <%= button_to "Destroy this container", category, method: :delete %>
     </div>

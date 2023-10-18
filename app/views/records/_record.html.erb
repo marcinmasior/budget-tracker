@@ -3,9 +3,9 @@
   <td><%= record.record_type.humanize %></td>
   <td><%= record.description %></td>
   <td><%= record.category.name %></td>
-  <td><%= record.value %></td>
+  <td class="text-end"><%= formatted_record_value(record) %></td>
   <td>
-    <div class="d-flex gap-2">
+    <div class="d-flex gap-2 justify-content-center">
       <%= link_to "Edit", edit_container_record_path(record.container, record) %>
       <%= button_to "Delete", container_record_path(record.container, record), method: :delete %>
     </div>
