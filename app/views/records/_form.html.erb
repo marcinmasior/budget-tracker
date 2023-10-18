@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :record_type, style: "display: block" %>
-    <%= form.select :record_type, Record.record_types.keys.map { |type| [type.humanize, type] }, prompt: 'Select Record Type' %>
+    <%= form.select :record_type, Record.record_types.keys.map { |type| [type.humanize, type] }, { prompt: 'Select Record Type' }, { class: "form-select" } %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.collection_select :category_id, current_user.categories, :id, :name, prompt: 'Select Category' %>
+    <%= form.collection_select :category_id, current_user.categories, :id, :name, { prompt: 'Select Category' }, { class: "form-select" } %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :value, style: "display: block" %>
-    <%= form.text_field :value %>
+    <%= form.text_field :value, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit(class: "btn btn-primary") %>
   </div>
 <% end %>

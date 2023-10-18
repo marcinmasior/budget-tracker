@@ -1,9 +1,5 @@
-<h1>New category</h1>
+<%= render 'shared/header', header: 'New category' do %>
+  <%= link_to "Back to categories", categories_path %>
+<% end %>
 
 <%= render "form", category: @category %>
-
-<br>
-
-<div>
-  <%= link_to "Back to categories", categories_path %>
-</div>

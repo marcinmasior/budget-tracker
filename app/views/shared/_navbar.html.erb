@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded mt-3" aria-label="Thirteenth navbar example">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+
+      <%= link_to root_path, class: 'navbar-brand col-lg-3 me-' do %>
+        Budget App
+      <% end %>
+
+      <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+        <li class="nav-item">
+          <%= link_to "Containers", containers_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Categories", categories_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</nav>

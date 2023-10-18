@@ -1,11 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/header', header: 'Categories' do %>
+  <%= link_to "New category", new_category_path %>
+<% end %>
 
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-  <% end %>
+<div id="containers">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @categories.each do |category| %>
+        <%= render category %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<%= link_to "New category", new_category_path %>

@@ -1,14 +1,7 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @container %>
-
-<div>
-  <%= link_to "Edit this container", edit_container_path(@container) %> |
-  <%= link_to "Back to containers", containers_path %>
-
+<%= render 'shared/header', header: @container.name do %>
+  <%= link_to "Edit this container", edit_container_path(@container) %>
   <%= button_to "Destroy this container", @container, method: :delete %>
-
-  <%= link_to "New record", new_container_record_path(@container) %>
-</div>
+  <%= link_to "Back to containers", containers_path %>
+<% end %>
 
 <%= render 'records/index', records: @container.records %>

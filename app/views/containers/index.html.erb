@@ -1,14 +1,25 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Containers</h1>
+<%= render 'shared/header', header: "Containers" do %>
+  <%= link_to "New container", new_container_path %>
+<% end %>
 
 <div id="containers">
-  <% @containers.each do |container| %>
-    <%= render container %>
-    <p>
-      <%= link_to "Show this container", container %>
-    </p>
-  <% end %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Income</th>
+          <th>Expense</th>
+          <th>Balance</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @containers.each do |container| %>
+            <%= render container %>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<%= link_to "New container", new_container_path %>

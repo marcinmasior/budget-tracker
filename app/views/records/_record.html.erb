@@ -1,27 +1,13 @@
-<div id="<%= dom_id record %>">
-  <p>
-    <strong>Date:</strong>
-    <%= record.date %>
-  </p>
-
-  <p>
-    <strong>Record type:</strong>
-    <%= record.record_type.humanize %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= record.description %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= record.category.name %>
-  </p>
-
-  <p>
-    <strong>Value:</strong>
-    <%= record.value %>
-  </p>
-
-</div>
+<tr id="<%= dom_id record %>">
+  <td><%= record.date %></td>
+  <td><%= record.record_type.humanize %></td>
+  <td><%= record.description %></td>
+  <td><%= record.category.name %></td>
+  <td><%= record.value %></td>
+  <td>
+    <div class="d-flex gap-2">
+      <%= link_to "Edit", edit_container_record_path(record.container, record) %>
+      <%= button_to "Delete", container_record_path(record.container, record), method: :delete %>
+    </div>
+  </td>
+</tr>

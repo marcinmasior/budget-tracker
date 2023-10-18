@@ -1,9 +1,26 @@
+<%= link_to "New record", new_container_record_path(@container) %>
+
 <h1>Records</h1>
 
 <div id="records">
-  <% records.each do |record| %>
-    <%= render record %>
-  <% end %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Record type</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Value</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% records.each do |record| %>
+        <%= render record %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-
 
