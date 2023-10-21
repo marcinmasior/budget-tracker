@@ -1,5 +1,7 @@
 <%= render 'shared/header', header: "Containers" do %>
-  <%= link_to "New container", new_container_path %>
+  <%= link_to new_container_path, class: "btn btn-success" do %>
+    <i class="bi bi-plus"></i> New container
+  <% end %>
 <% end %>
 
 <div id="containers">

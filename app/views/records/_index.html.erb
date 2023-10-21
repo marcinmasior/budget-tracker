@@ -7,7 +7,10 @@
       <caption>
         <div class="d-flex justify-content-between align-items-center">
           <h3>Records</h3>
-          <%= link_to "New record", new_container_record_path(@container) %>
+
+          <%= link_to new_container_record_path(@container), class: "btn btn-success" do %>
+            <i class="bi bi-plus"></i> New record
+          <% end %>
         </div>
       </caption>
       <thead>

@@ -1,5 +1,7 @@
 <%= render 'shared/header', header: 'New container' do %>
-  <%= link_to "Back to containers", containers_path %>
+  <%= link_to containers_path, class: "btn btn-secondary" do %>
+    <i class="bi bi-arrow-left"></i> Back to containers
+  <% end %>
 <% end %>
 
 <%= render "form", container: @container %>

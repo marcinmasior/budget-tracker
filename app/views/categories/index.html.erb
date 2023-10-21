@@ -1,5 +1,7 @@
 <%= render 'shared/header', header: 'Categories' do %>
-  <%= link_to "New category", new_category_path %>
+  <%= link_to new_category_path, class: "btn btn-success" do %>
+    <i class="bi bi-plus"></i> New category
+  <% end %>
 <% end %>
 
 <div id="containers">
@@ -8,6 +10,7 @@
       <thead>
       <tr>
         <th>Name</th>
+        <th class="text-end">Records</th>
         <th></th>
       </tr>
       </thead>
