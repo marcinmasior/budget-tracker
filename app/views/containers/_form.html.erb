@@ -16,6 +16,19 @@
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
+  <div class="mb-3 form-check">
+    <%= form.check_box :template, class: "form-check-input" %>
+    <%= form.label :template, class: "form-check-label" %>
+  </div>
+
+  <hr>
+
+  <div class="mb-3">
+    <%= form.label :template_id, "Choose a template", class: "form-label" %>
+    <%= form.collection_select :template_id, @template_containers, :id, :name, {include_blank: 'None'}, class: "form-control" %>
+    <small class="form-text text-muted">This is optional. Select a template if you want.</small>
+  </div>
+
   <div class="mb-3">
     <%= form.submit(class: "btn btn-primary") %>
   </div>

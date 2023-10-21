@@ -1,3 +1,6 @@
+
+<%= render 'records/statistics', container: @container, records: records  %>
+
 <div id="records">
   <div class="table-responsive">
     <table class="table caption-top">
@@ -13,6 +16,7 @@
         <th>Record type</th>
         <th>Description</th>
         <th>Category</th>
+        <th>Paid</th>
         <th class="text-end">Value</th>
         <th class="text-center"></th>
       </tr>
@@ -24,7 +28,7 @@
       </tbody>
       <tfoot>
       <tr>
-        <td colspan="4"></td>
+        <td colspan="5"></td>
         <td class="text-end"><%= formatted_balance(@container.balance) %></td>
         <td></td>
       </tr>

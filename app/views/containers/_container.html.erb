@@ -1,5 +1,9 @@
 <tr id="<%= dom_id container %>">
-  <td><%= link_to container.name, container %></td>
+  <td>
+    <%= link_to container.name, container %>
+    <% if container.template? %>
+      <span class="badge bg-secondary">TEMPLATE</span>
+    <% end %>
   <td class="text-end"><%= formatted_value(container.total_income) %></td>
   <td class="text-end"><%= formatted_value(container.total_expenses) %></td>
   <td class="text-end"><%= formatted_balance(container.balance) %></td>

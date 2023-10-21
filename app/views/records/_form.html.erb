@@ -36,6 +36,11 @@
     <%= form.text_field :value, class: "form-control" %>
   </div>
 
+  <div class="mb-3 form-check">
+    <%= form.check_box :paid, class: "form-check-input" %>
+    <%= form.label :paid, class: "form-check-label" %>
+  </div>
+
   <div class="mb-3">
     <%= form.submit(class: "btn btn-primary") %>
   </div>

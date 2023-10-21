@@ -3,6 +3,7 @@ class CreateContainers < ActiveRecord::Migration[7.0]
     create_table :containers do |t|
       t.bigint :user_id, null: false
       t.string :name
+      t.boolean :template, default: false
 
 
       t.timestamps

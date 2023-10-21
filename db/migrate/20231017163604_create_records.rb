@@ -8,6 +8,7 @@ class CreateRecords < ActiveRecord::Migration[7.0]
       t.text :description
       t.bigint :category_id, null: false
       t.decimal :value, null: false, default: 0, precision: 10, scale: 2
+      t.boolean :paid, default: false
 
       t.timestamps
     end

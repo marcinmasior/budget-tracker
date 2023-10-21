@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-header">Income</div>
+        <div class="card-body">
+          <h5 class="card-title"><%= formatted_value(container.total_income) %></h5>
+          <p class="card-text"><%= container.income_records_size %> records</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-header">Expenses</div>
+        <div class="card-body">
+          <h5 class="card-title"><%= formatted_value(container.total_expenses) %></h5>
+          <p class="card-text"><%= container.expenses_records_size %> records</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card bg-light mb-3">
+        <div class="card-header">Balance</div>
+        <div class="card-body">
+          <h5 class="card-title"><%= formatted_balance(container.balance) %></h5>
+          <p class="card-text"><%= records.size %> records</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

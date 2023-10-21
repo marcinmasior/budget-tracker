@@ -1,5 +1,6 @@
 class ContainersController < DashboardController
   before_action :set_container, only: %i[ show edit update destroy ]
+  before_action :set_template_containers, except: %i[index]
 
   def index
     @containers = current_user.containers
@@ -18,6 +19,15 @@ class ContainersController < DashboardController
   def create
     @container = Container.new(container_params)
     @container.user = current_user
+
+    template_id = container_template.dig(:template_id)
+
+    if template_id.present?
+      template_container = Container.find(template_id)
+      template_container.records.each do |record|
+        @container.records.build(record.attributes.except("id", "created_at", "updated_at"))
+      end
+    end
 
     if @container.save
       redirect_to container_url(@container), notice: "Container was successfully created."
@@ -46,7 +56,15 @@ class ContainersController < DashboardController
       @container = current_user.containers.find(params[:id])
     end
 
+    def set_template_containers
+      @template_containers = current_user.containers.where(template: true)
+    end
+
     def container_params
-      params.require(:container).permit(:name)
+      params.require(:container).permit(:name, :template)
+    end
+
+    def container_template
+      params.require(:container).permit(:template_id)
     end
 end

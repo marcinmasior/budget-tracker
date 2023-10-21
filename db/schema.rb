@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_163604) do
   create_table "containers", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
+    t.boolean "template", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_containers_on_user_id"
@@ -38,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_163604) do
     t.text "description"
     t.bigint "category_id", null: false
     t.decimal "value", precision: 10, scale: 2, default: "0.0", null: false
+    t.boolean "paid", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_records_on_category_id"
