@@ -69,5 +69,5 @@ end
 
 
 gem "devise", "~> 4.9"
-
 gem 'ransack', '~> 4.0'
+gem 'simple_form', '~> 5.3'

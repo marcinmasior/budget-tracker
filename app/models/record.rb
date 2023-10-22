@@ -5,7 +5,7 @@ class Record < ApplicationRecord
 
   validates :record_type, presence: true
   validates :value, presence: true
-  validates :category, presence: true
+  validates :category_id, presence: true
 
   enum record_type: { income: 0, expense: 1 }
 

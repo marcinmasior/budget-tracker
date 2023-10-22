@@ -1,22 +1,9 @@
-<%= form_with(model: category) do |form| %>
-  <% if category.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<%= simple_form_for(category) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-        <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.input :name %>
 
   <div class="mb-3">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.submit(class: "btn btn-primary") %>
+    <%= f.button :submit, nil, class: 'btn btn-primary' %>
   </div>
 <% end %>

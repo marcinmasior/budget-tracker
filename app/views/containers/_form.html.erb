@@ -1,35 +1,19 @@
-<%= form_with(model: container) do |form| %>
-  <% if container.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(container.errors.count, "error") %> prohibited this container from being saved:</h2>
+<%= simple_form_for(container) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-        <% container.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.input :name %>
 
-  <div class="mb-3">
-    <%= form.label :name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-
-  <div class="mb-3 form-check">
-    <%= form.check_box :template, class: "form-check-input" %>
-    <%= form.label :template, class: "form-check-label" %>
-  </div>
+  <%= f.input :template, as: :boolean %>
 
   <hr>
 
   <div class="mb-3">
-    <%= form.label :template_id, "Choose a template", class: "form-label" %>
-    <%= form.collection_select :template_id, @template_containers, :id, :name, {include_blank: 'None'}, class: "form-control" %>
+    <%= label_tag :template_id, "Choose a template", class: "form-label" %>
+    <%= select_tag :template_id, options_from_collection_for_select(@template_containers, :id, :name, params[:template_id]), include_blank: 'None', class: "form-control" %>
     <small class="form-text text-muted">This is optional. Select a template if you want.</small>
   </div>
 
   <div class="mb-3">
-    <%= form.submit(class: "btn btn-primary") %>
+    <%= f.button :submit, nil, class: 'btn btn-primary' %>
   </div>
 <% end %>

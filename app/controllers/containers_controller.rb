@@ -25,7 +25,7 @@ class ContainersController < DashboardController
     @container = Container.new(container_params)
     @container.user = current_user
 
-    template_id = container_template.dig(:template_id)
+    template_id = params.dig(:template_id)
 
     if template_id.present?
       template_container = Container.find(template_id)
@@ -67,9 +67,5 @@ class ContainersController < DashboardController
 
     def container_params
       params.require(:container).permit(:name, :template)
-    end
-
-    def container_template
-      params.require(:container).permit(:template_id)
     end
 end
