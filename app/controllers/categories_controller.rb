@@ -2,7 +2,8 @@ class CategoriesController < DashboardController
   before_action :set_category, only: %i[ edit update destroy ]
 
   def index
-    @categories = current_user.categories
+    @q = current_user.categories.ransack(params[:q] || default_ransack_params)
+    @categories = @q.result
   end
 
   def new
@@ -44,5 +45,9 @@ class CategoriesController < DashboardController
 
     def category_params
       params.require(:category).permit(:name)
+    end
+
+    def default_ransack_params
+      { s: "name asc" }
     end
 end

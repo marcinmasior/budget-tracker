@@ -3,10 +3,15 @@ class ContainersController < DashboardController
   before_action :set_template_containers, except: %i[index]
 
   def index
-    @containers = current_user.containers
+    params[:q] ||= { template_eq: 'false' }
+
+    @q = current_user.containers.ransack(params[:q])
+    @containers = @q.result
   end
 
   def show
+    @q = @container.records.ransack(params[:q])
+    @records = @q.result
   end
 
   def new

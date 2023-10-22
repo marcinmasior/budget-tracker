@@ -8,4 +8,8 @@ class Record < ApplicationRecord
   validates :category, presence: true
 
   enum record_type: { income: 0, expense: 1 }
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w(category_id date description paid record_type)
+  end
 end

@@ -24,4 +24,8 @@ class Container < ApplicationRecord
     total_income - total_expenses
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "name", "template", "updated_at", "user_id"]
+  end
+
 end
