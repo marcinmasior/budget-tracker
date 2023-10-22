@@ -30,7 +30,16 @@ class ContainersController < DashboardController
     if template_id.present?
       template_container = Container.find(template_id)
       template_container.records.each do |record|
-        @container.records.build(record.attributes.except("id", "created_at", "updated_at"))
+        attributes = record.attributes.except("id", "created_at", "updated_at")
+
+        if record.date && (params[:month].present? || params[:year].present?)
+          month = params[:month].presence || record.date.month
+          year = params[:year].presence || record.date.year
+
+          attributes["date"] = Date.new(year.to_i, month.to_i, record.date.day)
+        end
+
+        @container.records.build(attributes)
       end
     end
 

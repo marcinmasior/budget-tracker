@@ -13,6 +13,30 @@
     <small class="form-text text-muted">This is optional. Select a template if you want.</small>
   </div>
 
+  <div class="row mb-3" >
+    <div class="col-6">
+      <div>
+        <%= label_tag :month, "Month", class: "form-label" %>
+        <%= select_tag :month,
+          options_for_select((1..12).map { |m| [Date::MONTHNAMES[m], m] }, params[:month]),
+          include_blank: 'Select a month',
+          class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div>
+        <%= label_tag :year, "Year", class: "form-label" %>
+        <%= select_tag :year,
+          options_for_select([Date.current.year, Date.current.year + 1, Date.current.year + 2], params[:year]),
+          include_blank: 'Select a year',
+          class: "form-control" %>
+      </div>
+    </div>
+    <small class="form-text text-muted">
+      All records from the template will be copied with the selected month and year. If not specified, the original dates will remain unchanged.
+    </small>
+  </div>
+
   <div class="mb-3">
     <%= f.button :submit, nil, class: 'btn btn-primary' %>
   </div>

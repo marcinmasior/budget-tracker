@@ -1,6 +1,12 @@
 <tr id="<%= dom_id record %>">
+  <td>
+    <% if record.record_type == "income" %>
+      <i class="bi bi-arrow-down-square-fill text-success"></i>
+    <% else %>
+      <i class="bi bi-arrow-up-square-fill text-danger"></i>
+    <% end %>
+  </td>
   <td><%= record.date %></td>
-  <td><%= record.record_type.humanize %></td>
   <td><%= record.description %></td>
   <td><%= record.category.name %></td>
   <td>

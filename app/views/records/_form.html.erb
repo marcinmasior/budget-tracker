@@ -3,7 +3,7 @@
 
   <%= f.input :date, as: :string, input_html: { type: 'date' } %>
 
-  <%= f.input :record_type, collection: Record.record_types.keys.map { |type| [type.humanize, type] }, prompt: 'Select Record Type' %>
+  <%= f.input :record_type, collection: Record.record_types.keys.map { |type| [type.humanize, type] }, prompt: 'Select Record Type', selected: 'expense' %>
 
   <%= f.input :description, as: :text %>
 
