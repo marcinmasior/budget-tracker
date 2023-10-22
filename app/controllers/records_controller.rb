@@ -1,6 +1,6 @@
-class RecordsController < ApplicationController
-  before_action :set_container, only: %i[ new create edit update destroy ]
-  before_action :set_record, only: %i[ edit update destroy ]
+class RecordsController < DashboardController
+  before_action :set_container, only: %i[ new create edit update destroy toggle_paid ]
+  before_action :set_record, only: %i[ edit update destroy toggle_paid ]
 
   def index
     @records = @container.records
@@ -37,6 +37,12 @@ class RecordsController < ApplicationController
     @record.destroy
 
     redirect_to @container, notice: "Record was successfully destroyed."
+  end
+
+  def toggle_paid
+    @record.update(paid: params[:paid])
+
+    render json: { paid: @record.paid }
   end
 
   private

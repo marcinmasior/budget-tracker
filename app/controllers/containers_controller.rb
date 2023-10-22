@@ -10,7 +10,7 @@ class ContainersController < DashboardController
   end
 
   def show
-    @q = @container.records.ransack(params[:q])
+    @q = @container.records.includes(:category).ransack(params[:q]|| default_records_ransack_params)
     @records = @q.result
   end
 
@@ -67,5 +67,9 @@ class ContainersController < DashboardController
 
     def container_params
       params.require(:container).permit(:name, :template)
+    end
+
+    def default_records_ransack_params
+      { s: "date asc" }
     end
 end

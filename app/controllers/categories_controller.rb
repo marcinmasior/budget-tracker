@@ -33,6 +33,11 @@ class CategoriesController < DashboardController
   end
 
   def destroy
+    if @category.records.any?
+      redirect_to categories_url, alert: "You cannot delete this category as long as there are records assigned to it."
+      return
+    end
+
     @category.destroy
 
     redirect_to categories_url, notice: "Category was successfully destroyed."

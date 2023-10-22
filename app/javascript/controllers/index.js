@@ -9,3 +9,6 @@ application.register("confirm", ConfirmController)
 
 import FilterFormController from "./filter_form_controller"
 application.register("filter-form", FilterFormController)
+
+import TogglePaidController from "./toggle_paid_controller"
+application.register("toggle-paid", TogglePaidController)
