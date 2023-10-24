@@ -1,0 +1,7 @@
+<%= render 'shared/header', header: 'Cloning record' do %>
+  <%= link_to @container, class: "btn btn-secondary" do %>
+    <i class="bi bi-arrow-left"></i> Back to container
+  <% end %>
+<% end %>
+
+<%= render "form", container: @container, record: @record %>

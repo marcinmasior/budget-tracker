@@ -1,6 +1,6 @@
 class RecordsController < DashboardController
-  before_action :set_container, only: %i[ new create edit update destroy toggle_paid ]
-  before_action :set_record, only: %i[ edit update destroy toggle_paid ]
+  before_action :set_container, only: %i[ new create edit update destroy toggle_paid clone ]
+  before_action :set_record, only: %i[ edit update destroy toggle_paid clone ]
 
   def index
     @records = @container.records
@@ -43,6 +43,10 @@ class RecordsController < DashboardController
     @record.update(paid: params[:paid])
 
     render json: { paid: @record.paid }
+  end
+
+  def clone
+    @record = @record.dup
   end
 
   private

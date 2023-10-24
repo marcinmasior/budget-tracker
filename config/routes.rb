@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :containers do
     resources :records, except: [:index, :show] do
       member do
+        get :clone
         put :toggle_paid
       end
     end

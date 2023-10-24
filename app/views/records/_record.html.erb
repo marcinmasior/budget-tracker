@@ -26,6 +26,9 @@
       <%= link_to edit_container_record_path(record.container, record), class: "btn btn-sm btn-primary" do %>
         <i class="bi bi-pencil"></i>
       <% end %>
+      <%= link_to clone_container_record_path(record.container, record), class: "btn btn-sm btn-secondary" do %>
+        <i class="bi bi-copy"></i>
+      <% end %>
       <%= button_to container_record_path(record.container, record), method: :delete, class: "btn btn-sm btn-danger",
         data: {
           controller: "confirm",
