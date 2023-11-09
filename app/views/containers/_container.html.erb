@@ -5,7 +5,7 @@
       <span class="badge bg-secondary">TEMPLATE</span>
     <% end %>
   </td>
-  <td><%= container.created_at.to_date %></td>
+  <td><%= container.date.to_date %></td>
   <td class="text-end"><%= formatted_value(container.total_income) %></td>
   <td class="text-end"><%= formatted_value(container.total_expenses) %></td>
   <td class="text-end"><%= formatted_balance(container.balance) %></td>

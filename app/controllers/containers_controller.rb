@@ -5,7 +5,7 @@ class ContainersController < DashboardController
   def index
     params[:q] ||= { template_eq: 'false' }
 
-    @q = current_user.containers.ransack(params[:q])
+    @q = current_user.containers.order(:date, :id).ransack(params[:q])
     @containers = @q.result
   end
 
@@ -75,10 +75,11 @@ class ContainersController < DashboardController
     end
 
     def container_params
-      params.require(:container).permit(:name, :template)
+      params.require(:container).permit(:name, :date, :template)
     end
 
     def default_records_ransack_params
       { s: "date asc" }
     end
+
 end
